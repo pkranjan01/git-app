@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="6a19ee12-5d74-4ddc-8a9e-ca18eee9b505" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="helloworldFlow" doc:id="6b1caf7e-a202-4fe5-8dac-fae03f921959" >
+		<http:listener doc:name="Listener" doc:id="655d0178-ffe0-4268-8806-52d599eace9c" config-ref="HTTP_Listener_config" path="/hello"/>
+		<set-payload value="my second commit" doc:name="Set Payload" doc:id="d52b0120-38c4-44ca-a162-8e904ab91ba2" />
+		<logger level="INFO" doc:name="Logger" doc:id="ea1a59d1-f95e-4234-b126-5e4d0eca11ac" message="first logger"/>
+	</flow>
+</mule>
